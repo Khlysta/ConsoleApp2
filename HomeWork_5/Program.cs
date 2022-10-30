@@ -93,7 +93,7 @@ double[] CreateArray(int size)
     Random random = new Random();
     for (int i = 0; i < array.Length; i++)
     {
-        array[i] = Convert.ToDouble(random.Next(1,9));
+        array[i] = random.Next(1,9);
     }
     return array;
 }
