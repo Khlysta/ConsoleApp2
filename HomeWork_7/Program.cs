@@ -6,10 +6,10 @@ Console.WriteLine("n:");
 int n = int.Parse(Console.ReadLine());
 
 double[,] array = new double[m, n];
-CreateArrayRandom();
-PrintArray();
+CreateArrayRandom(array);
+PrintArray(array);
 
-void CreateArrayRandom()
+void CreateArrayRandom(double[,] array)
 {
     Random random = new Random();
 
@@ -22,7 +22,7 @@ void CreateArrayRandom()
     }
 }
 
-void PrintArray()
+void PrintArray(double[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
@@ -44,14 +44,14 @@ Console.WriteLine("Номер столбца: ");
 int n = int.Parse(Console.ReadLine());
 
 int[,] array = new int[5, 5];
-CreateArrayRandom();
-PrintArray();
+CreateArrayRandom(array);
+PrintArray(array);
 
 if ((m < 5) & (n < 5)) Console.WriteLine($"Число: {array[m, n]}");
 else Console.WriteLine("Нет такого числа");
 
 
-void CreateArrayRandom()
+void CreateArrayRandom(int[,] array)
 {
     Random random = new Random();
 
@@ -64,7 +64,7 @@ void CreateArrayRandom()
     }
 }
 
-void PrintArray()
+void PrintArray(int[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
@@ -79,19 +79,21 @@ void PrintArray()
 
 //Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
 
+using System;
+
 Console.WriteLine("m:");
 int m = int.Parse(Console.ReadLine());
 Console.WriteLine("n:");
 int n = int.Parse(Console.ReadLine());
 
 int[,] array = new int[m, n];
-CreateArrayRandom();
-PrintArray();
-PrintMiddleColumn();
+CreateArrayRandom(array);
+PrintArray(array);
+PrintMiddleColumn(array);
 
-void PrintMiddleColumn()
+void PrintMiddleColumn(int[,] array)
 {
-    
+
     double result = 0;
     for (int j = 0; j < array.GetLength(1); j++)
     {
@@ -100,12 +102,12 @@ void PrintMiddleColumn()
         {
             sum += array[i, j];
         }
-        result = sum / m;
-        Console.Write($"Средняя сумма столбца {j+1} = {result}" + "; \n") ;
+        result = sum / array.GetLength(0);
+        Console.Write($"Средняя сумма столбца {j + 1} = {result}" + "; \n");
     }
 }
 
-void CreateArrayRandom()
+void CreateArrayRandom(int[,] array)
 {
     Random random = new Random();
 
@@ -118,7 +120,7 @@ void CreateArrayRandom()
     }
 }
 
-void PrintArray()
+void PrintArray(int[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
